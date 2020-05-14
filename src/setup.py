@@ -12,6 +12,7 @@ setuptools.setup(
     ),
     install_requires = [
         "pandas",
-        "numpy"
+        "numpy",
+        "tensorflow",
    ],
 )
