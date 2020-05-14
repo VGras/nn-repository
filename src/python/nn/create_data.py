@@ -1,5 +1,6 @@
 import numpy as np
 import json
+from typing import TextIO
 
 def create_data():
   x_train = np.random.rand(1000, 3)
