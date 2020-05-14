@@ -26,8 +26,9 @@ spec:
         path: /app/main.py
         raw:
           data: |
-            from nn import create_data
-            create_data()
+            from nn import create_data, save_data
+            data_dict = create_data()
+            save_data([data_dict], ['data.json'])
       # This section is where output artifacts are listed. They must be listed here, or else they will get deleted when the template completes. They must be under the `app` directory in order to be saved.
     outputs:
       artifacts:
