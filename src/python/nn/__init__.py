@@ -1,1 +1,1 @@
-from .create_data.py import *
+from .create_data import *
