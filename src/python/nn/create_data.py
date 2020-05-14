@@ -13,9 +13,32 @@ def create_data():
   data_dict['y_train'] = y_train.tolist()
   data_dict['y_test'] = y_test.tolist()
   data_dict['schema'] = 'data'
-  
-  with open('data.json','w') as f:
-      # Write data to file as this will serve as output artifact
-      f.write(json.dumps(data_dict, indent=2)) 
 
+  return data_dict
   
+def save_data(datas:list, filenames:list) -> None:
+    """
+    Saves data as JSON.
+    Args:
+      datas (list):
+        A list of dicts of data to save.
+      filenames (list):
+        A list of filenames corresponding to the data dicts to save the data in. 
+        These should have a '.json' extension.
+    """
+
+    for i in range(len(datas)):
+        data = datas[i]
+        filename = filenames[i]
+
+        try:
+            data["schema"] = "data"
+        except KeyError as e:
+            print(f'Error: Could not load schema key from {filename}')
+
+        try:
+            with open(filename,'w') as f:
+                # Write data to file as this will serve as output artifact
+                f.write(json.dumps(data, indent=2)) 
+        except IOError as e:
+            print(f'Error: Could not open {filename}')
