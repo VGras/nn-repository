@@ -12,10 +12,10 @@ def create_data():
   data_dict['X_test'] = x_test.tolist()
   data_dict['y_train'] = y_train.tolist()
   data_dict['y_test'] = y_test.tolist()
-  data['schema'] = 'data'
+  data_dict['schema'] = 'data'
   
   with open('data.json','w') as f:
       # Write data to file as this will serve as output artifact
-      f.write(json.dumps(data, indent=2)) 
+      f.write(json.dumps(data_dict, indent=2)) 
 
   
