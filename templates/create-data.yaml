@@ -15,10 +15,6 @@ spec:
 
       # `parameters` represent initialization values for a template. 
       parameters:
-      - name: docker-image
-        value: z-quantum-default
-      - name: docker-tag
-        value: latest
 
       # The `command` parameter is required because that is what is run by `generic-task`.
       - name: command
