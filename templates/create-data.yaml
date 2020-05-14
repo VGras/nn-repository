@@ -34,27 +34,3 @@ spec:
       artifacts:
       - name: data
         path: /app/data.json
-
-def load_data(filename:TextIO) -> dict:
-    """
-    Loads data from JSON.
-    Args:
-      filename (TextIO):
-        The file to load the data from.
-    Returns:
-      data (dict):
-        The data that was loaded from the file.
-    """
-
-    if isinstance(filename, str):
-        try:
-            with open(filename, 'r') as f:
-                data = json.load(f)
-
-        except IOError:
-            print(f'Error: Could not open {filename}')
-
-    else:
-        data = json.load(filename)
-
-    return data
