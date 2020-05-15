@@ -43,7 +43,7 @@ spec:
             from nn.nn_model import build_model, save_model_json
             
             data = load_data('data.json')
-            model = build_model(data["data"],
+            model = build_model(data,
                                   {{inputs.parameters.layers}},
                                   {{inputs.parameters.dropout}},
                                   {{input.parameters.activations}})
