@@ -1,7 +1,10 @@
 import json
 import numpy as np
-from tensorflow.keras.models import Sequential
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras.models import Sequential, model_from_json, load_model, save_model
 from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras import callbacks
 
 def build_model(data, layers=[50, 50], dropout=[0.1, 0.1], activations=['tanh', 'tanh']):
     
