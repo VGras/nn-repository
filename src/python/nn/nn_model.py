@@ -8,7 +8,10 @@ def build_model(data, layers=[50, 50], dropout=[0.1, 0.1], activations=['tanh', 
     x_train = np.array(data['X_train'])
     y_train = np.array(data['y_train'])
     input_shape = (x_train.shape[1],)
-    output_shape = y_train.shape[1]
+    try:
+        output_shape = y_train.shape[1]
+    except IndexError:
+        output_shape = 1
     
     model = Sequential()
     for i in range(len(layers)):
