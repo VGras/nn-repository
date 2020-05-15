@@ -5,15 +5,16 @@ from tensorflow.keras.layers import Dense, Dropout
 
 def build_model(data, layers=[50, 50], dropout=[0.1, 0.1], activations=['tanh', 'tanh']):
     
-    num_classes = data['num_classes']
     x_train = np.array(data['X_train'])
+    y_train = np.array(data['y_train'])
     input_shape = (x_train.shape[1],)
+    output_shape = y_train.shape[1]
     
     model = Sequential()
     for i in range(len(layers)):
         model.add(Dense(layers[i], activation=activations[i], input_shape=input_shape))
         model.add(Dropout(dropout[i]))
-    model.add(Dense(num_classes, activation='linear'))
+    model.add(Dense(output_shape, activation='linear'))
 
     return model
     
