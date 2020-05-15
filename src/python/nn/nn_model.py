@@ -18,7 +18,7 @@ def build_model(data, layers=[50, 50], dropout=[0.1, 0.1], activations=['tanh', 
     return model
     
     
- def train_model(model, data, epochs=5, batch_size=10):
+def train_model(model, data, epochs=5, batch_size=10):
     
     X_train = np.array(data['X_train'])
     y_train = np.array(data[y_train'])
