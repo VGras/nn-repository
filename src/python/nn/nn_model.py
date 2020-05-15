@@ -6,8 +6,8 @@ from tensorflow.keras.layers import Dense, Dropout
 def build_model(data, layers=[50, 50], dropout=[0.1, 0.1], activations=['tanh', 'tanh']):
     
     num_classes = data['num_classes']
-    X_train = np.array(data['X_train'])
-    input_shape = (X_train.shape[1],)
+    x_train = np.array(data['X_train'])
+    input_shape = (x_train.shape[1],)
     
     model = Sequential()
     for i in range(len(layers)):
@@ -20,20 +20,20 @@ def build_model(data, layers=[50, 50], dropout=[0.1, 0.1], activations=['tanh', 
     
 def train_model(model, data, epochs=5, batch_size=10):
     
-    X_train = np.array(data['X_train'])
-    y_train = np.array(data[y_train'])
+    x_train = np.array(data['X_train'])
+    y_train = np.array(data['y_train'])
     model.compile(loss='mse', optimizer='adam')
-    fithistory = model.fit(X_train, y_train, epochs=epochs, batch_size=batch_size, verbose=1)
+    fithistory = model.fit(x_train, y_train, epochs=epochs, batch_size=batch_size, verbose=1)
 
     return fithistory.history, model
     
     
 def test_model(model, data):
     
-    X_test = np.array(data['X_test'])
+    x_test = np.array(data['X_test'])
     y_test = np.array(data['y_test'])
 
-    score = model.evaluate(X_test, y_test, verbose=0)
+    score = model.evaluate(x_test, y_test, verbose=0)
     res = {}
     res['schema'] = 'score_nn'
     res['Test loss'] = score[0]
