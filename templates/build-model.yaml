@@ -42,7 +42,7 @@ spec:
             from nn.create_data import load_data
             from nn.nn_model import build_model, save_model_json
             
-            data = load_data('preprocessed_data.json')
+            data = load_data('data.json')
             model = build_model(data["data"],
                                   {{inputs.parameters.layers}},
                                   {{inputs.parameters.dropout}},
