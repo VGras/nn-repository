@@ -28,13 +28,13 @@ def preprocess_data(data):
   x_test_std = StandardScaler().fit(x_train).transform(x_test)
   y_test_std = StandardScaler().fit(y_train).transform(y_test)
   
-  preprocess_data = {}
-  preprocess_data['X_train'] = x_train_std
-  preprocess_data['X_test'] = x_test_std
-  preprocess_data['y_train'] = y_train_std
-  preprocess_data['y_test'] = y_test_std
+  preprocess_data_dict = {}
+  preprocess_data_dict['X_train'] = x_train_std
+  preprocess_data_dict['X_test'] = x_test_std
+  preprocess_data_dict['y_train'] = y_train_std
+  preprocess_data_dict['y_test'] = y_test_std
   
-  return preprocess_data
+  return preprocess_data_dict
   
 def save_data(datas:list, filenames:list) -> None:
     """
