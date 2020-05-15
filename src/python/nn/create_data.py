@@ -5,7 +5,7 @@ from typing import TextIO
 def create_data(num_points):
   x_train = np.random.rand(num_points, 3)
   y_train = np.exp(x_train[:, 0]*x_train[:, 1]-3*x_train[:, 2]+1) + 3*x_train[:, 1]**4 + 0.5*np.random.rand(num_points)
-  x_test = np.random.rand(3,np.int(num_points/4))
+  x_test = np.random.rand(np.int(num_points/4), 3)
   y_test = np.exp(x_test[:, 0]*x_test[:, 1]-3*x_test[:, 2]+1) + 3*x_test[:, 1]**4 + 0.5*np.random.rand(np.int(num_points/4))
   
   data_dict = {}
