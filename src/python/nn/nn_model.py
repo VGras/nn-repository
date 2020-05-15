@@ -30,7 +30,7 @@ def train_model(model, data, epochs=5, batch_size=10):
     
     x_train = np.array(data['X_train'])
     y_train = np.array(data['y_train'])
-    model.compile(loss='mean_squared_error', optimizer='adam', metrics=['MeanSquaredError'])
+    model.compile(loss='mean_squared_error', optimizer='adam')
     fithistory = model.fit(x_train, y_train, epochs=epochs, batch_size=batch_size, verbose=1)
 
     return fithistory.history, model
@@ -44,8 +44,7 @@ def test_model(model, data):
     score = model.evaluate(x_test, y_test, verbose=0)
     res = {}
     res['schema'] = 'score_nn'
-    res['Test loss'] = score[0]
-    res['Test accuracy'] = score[1]
+    res['Predictions test'] = model.predict(x_test).tolist()
     res['Test r2 score'] = r2_score(y_test, model.predict(x_test))
     
     with open("results.json",'w') as f:
