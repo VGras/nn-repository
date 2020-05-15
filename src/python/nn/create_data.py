@@ -1,6 +1,7 @@
 import numpy as np
 import json
 from typing import TextIO
+from sklearn.preprocessing import StandardScaler()
 
 def create_data(num_points):
   x_train = np.random.rand(num_points, 3)
@@ -15,6 +16,25 @@ def create_data(num_points):
   data_dict['y_test'] = y_test.tolist()
 
   return data_dict
+
+def preprocess_data(data):
+  x_train = np.array(data['X_train'])
+  x_test = np.array(data['X_test'])
+  y_train = np.array(data['y_train'])
+  y_test = np.array(data['y_test'])
+  
+  x_train_std = StandardScaler().fit_transform(x_train)
+  y_train_std = StandarScaler().fit_transform(y_train)
+  x_test_std = StandardScaler().fit(x_train).transform(x_test)
+  y_test_std = StandardScaler().fit(y_train).transform(y_test)
+  
+  preprocess_data = {}
+  preprocess_data['X_train'] = x_train_std
+  preprocess_data['X_test'] = x_test_std
+  preprocess_data['y_train'] = y_train_std
+  preprocess_data['y_test'] = y_test_std
+  
+  return preprocess_data
   
 def save_data(datas:list, filenames:list) -> None:
     """
