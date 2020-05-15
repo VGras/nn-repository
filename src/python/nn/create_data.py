@@ -31,10 +31,10 @@ def preprocess_data(data):
   y_test_std = StandardScaler().fit(y_train).transform(y_test)
   
   preprocess_data_dict = {}
-  preprocess_data_dict['X_train'] = x_train_std
-  preprocess_data_dict['X_test'] = x_test_std
-  preprocess_data_dict['y_train'] = y_train_std
-  preprocess_data_dict['y_test'] = y_test_std
+  preprocess_data_dict['X_train'] = x_train_std.tolist()
+  preprocess_data_dict['X_test'] = x_test_std.tolist()
+  preprocess_data_dict['y_train'] = y_train_std.tolist()
+  preprocess_data_dict['y_test'] = y_test_std.tolist()
   
   return preprocess_data_dict
   
