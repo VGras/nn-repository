@@ -27,7 +27,7 @@ spec:
       # This section creates a script called `main.py` containing the code below under `data`. It must be under the `app` directory in order for the command above to locate it.
       artifacts:
       - name: model
-        path: /app/trained_model.json
+        path: /app/model.json
       - name: data
         path: /app/data.json
       - name: main-script
@@ -37,7 +37,7 @@ spec:
             from nn.create_data import load_data
             from nn.nn_model import load_model_json, test_model
             data = load_data('data.json')
-            model = load_model_json('trained_model.json')
+            model = load_model_json('model.json')
             test_model(model, data)
       # This section is where output artifacts are listed. They must be listed here, or else they will get deleted when the template completes. They must be under the `app` directory in order to be saved.
     outputs:
