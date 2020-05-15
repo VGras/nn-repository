@@ -1,7 +1,7 @@
 import numpy as np
 import json
 from typing import TextIO
-from sklearn.preprocessing import StandardScaler()
+from sklearn.preprocessing import StandardScaler
 
 def create_data(num_points):
   x_train = np.random.rand(num_points, 3)
