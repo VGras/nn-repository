@@ -13,6 +13,6 @@ setuptools.setup(
     install_requires = [
         "pandas",
         "numpy",
-        "tensorflow==2.1.0"
+        "tensorflow"
    ],
 )
