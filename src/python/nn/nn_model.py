@@ -40,8 +40,7 @@ def test_model(model, data):
     
     x_test = np.array(data['X_test'])
     y_test = np.array(data['y_test'])
-
-    score = model.evaluate(x_test, y_test, verbose=0)
+    
     res = {}
     res['schema'] = 'score_nn'
     res['Predictions test'] = model.predict(x_test).tolist()
