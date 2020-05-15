@@ -1,5 +1,6 @@
 import json
 import numpy as np
+from sklearn.metrics import r2_score
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.models import Sequential, model_from_json, load_model, save_model
@@ -29,7 +30,7 @@ def train_model(model, data, epochs=5, batch_size=10):
     
     x_train = np.array(data['X_train'])
     y_train = np.array(data['y_train'])
-    model.compile(loss='mse', optimizer='adam')
+    model.compile(loss='mean_squared_error', optimizer='adam', metrics=['MeanSquaredError'])
     fithistory = model.fit(x_train, y_train, epochs=epochs, batch_size=batch_size, verbose=1)
 
     return fithistory.history, model
@@ -45,6 +46,7 @@ def test_model(model, data):
     res['schema'] = 'score_nn'
     res['Test loss'] = score[0]
     res['Test accuracy'] = score[1]
+    res['Test r2 score'] = r2_score(y_test, model.predict(x_test))
     
     with open("results.json",'w') as f:
         f.write(json.dumps(res))
