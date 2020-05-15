@@ -40,7 +40,7 @@ spec:
         path: /app/main.py
         raw:
           data: |
-            from nn.ceate_data import load_data
+            from nn.create_data import load_data
             from nn.nn_model import load_model_json, train_model, save_loss_history, save_model_json
             
             data = load_data('data.json')
