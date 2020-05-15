@@ -24,7 +24,7 @@ def preprocess_data(data):
   y_test = np.array(data['y_test'])
   
   x_train_std = StandardScaler().fit_transform(x_train)
-  y_train_std = StandarScaler().fit_transform(y_train)
+  y_train_std = StandardScaler().fit_transform(y_train)
   x_test_std = StandardScaler().fit(x_train).transform(x_test)
   y_test_std = StandardScaler().fit(y_train).transform(y_test)
   
