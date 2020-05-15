@@ -34,7 +34,7 @@ spec:
         path: /app/main.py
         raw:
           data: |
-            from nn.create_data import create_data
+            from nn.create_data import load_data
             from nn.nn_model import load_model_json, test_model
             data = load_data('data.json')
             model = load_model_json('model.json')
